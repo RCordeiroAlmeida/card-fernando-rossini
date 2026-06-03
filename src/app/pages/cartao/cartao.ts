@@ -8,7 +8,7 @@ import { NgIconComponent } from '@ng-icons/core';
   selector: 'app-cartao',
   templateUrl: './cartao.html',
   styleUrl: './cartao.css',
-  imports: [NgStyle, NgFor, NgIconComponent],
+  // imports: [NgStyle, NgFor, NgIconComponent],
   viewProviders: [provideIcons({ lucideNfc, lucideBrain, lucideGraduationCap})]
 
 })

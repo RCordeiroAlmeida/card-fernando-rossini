@@ -1,7 +1,9 @@
-<div class="flex items-center justify-center min-h-screen bg-zinc-900 overflow-x-hidden" style="font-family: 'MuseoModerno', sans-serif; padding: 24px 16px;">
-
+<div
+  class="flex items-center justify-center min-h-screen bg-zinc-900 overflow-x-hidden"
+  style="font-family: 'MuseoModerno', sans-serif; padding: 24px 16px"
+>
   <style>
-   @import url('https://fonts.googleapis.com/css2?family=MuseoModerno:ital,wght@0,100..900;1,100..900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=MuseoModerno:ital,wght@0,100..900;1,100..900&display=swap');
 
     .scene {
       width: 100%;
@@ -9,9 +11,10 @@
       height: 520px;
       perspective: 1200px;
       position: relative;
-      transition: max-width 0.7s cubic-bezier(0.22,1,0.36,1),
-                  height 0.7s cubic-bezier(0.22,1,0.36,1),
-                  margin 0.7s cubic-bezier(0.22,1,0.36,1);
+      transition:
+        max-width 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+        height 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+        margin 0.7s cubic-bezier(0.22, 1, 0.36, 1);
     }
     .scene.expanded {
       max-width: calc(100% + 32px);
@@ -26,10 +29,12 @@
       height: 100%;
       position: relative;
       transform-style: preserve-3d;
-      transition: transform 0.85s cubic-bezier(0.22,1,0.36,1);
+      transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
       will-change: transform;
     }
-    .flipper.flipped { transform: rotateY(180deg); }
+    .flipper.flipped {
+      transform: rotateY(180deg);
+    }
 
     .face-front {
       position: absolute;
@@ -60,46 +65,71 @@
     }
 
     .front-card {
-      width: 100%; height: 100%;
-      background: #F7F7F7;
+      width: 100%;
+      height: 100%;
+      background: #f7f7f7;
       padding: 28px 24px;
-      display: flex; flex-direction: column;
-      cursor: pointer; position: relative; overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.12);
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.12);
       user-select: none;
     }
     .front-glow-1 {
-      position: absolute; bottom: -60px; right: -60px;
-      width: 240px; height: 240px;
-      background: radial-gradient(circle, rgba(124,58,237,0.35) 0%, transparent 70%);
-      border-radius: 50%; pointer-events: none;
+      position: absolute;
+      bottom: -60px;
+      right: -60px;
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle, rgba(124, 58, 237, 0.35) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
     }
     .front-glow-2 {
-      position: absolute; top: -40px; left: -40px;
-      width: 180px; height: 180px;
-      background: radial-gradient(circle, rgba(16,185,129,0.15) 0%, transparent 70%);
-      border-radius: 50%; pointer-events: none;
+      position: absolute;
+      top: -40px;
+      left: -40px;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
     }
     .logo-mark {
-      width: 44px; height: 44px;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.2);
+      width: 44px;
+      height: 44px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .logo-text {
       font-family: 'MuseoModerno', serif;
-      color: white; font-size: 18px; font-weight: 500;
-      letter-spacing: 0.02em; line-height: 1.1;
+      color: white;
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      line-height: 1.1;
     }
     .logo-sub {
-      font-size: 8px; font-weight: 500; letter-spacing: 0.25em;
-      color: rgba(255,255,255,0.5); text-transform: uppercase; margin-top: 1px;
+      font-size: 8px;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      color: rgba(255, 255, 255, 0.5);
+      text-transform: uppercase;
+      margin-top: 1px;
     }
     .front-name {
       font-family: 'MuseoModerno', serif;
-      font-size: clamp(30px, 9vw, 38px); font-weight: 600;
-      color:#3e1b83; line-height: 1.05; letter-spacing: -0.01em;
+      font-size: clamp(30px, 9vw, 38px);
+      font-weight: 600;
+      color: #3e1b83;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
     }
     .front-role {
       font-family: 'Montserrat', serif;
@@ -125,181 +155,386 @@
       margin-top: 2px;
     }
     .front-crp {
-      border: 1px solid rgba(255,255,255,0.2); border-radius: 20px;
-      padding: 4px 10px; font-size: 9px; color: rgba(255,255,255,0.5); white-space: nowrap;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 4px 10px;
+      font-size: 9px;
+      color: rgba(255, 255, 255, 0.5);
+      white-space: nowrap;
     }
     .chip {
-      width: 36px; height: 28px;
-      background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.08));
-      border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; position: relative;
+      width: 36px;
+      height: 28px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.08));
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 6px;
+      position: relative;
     }
     .chip::before {
-      content: ''; position: absolute; inset: 3px;
-      border: 1px solid rgba(255,255,255,0.2); border-radius: 3px;
+      content: '';
+      position: absolute;
+      inset: 3px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 3px;
     }
 
     .back-card {
       width: 100%;
-      background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 50%, #a78bfa 100%);
+      background: #280049;
       padding: 10px;
     }
-    .scene.expanded .back-card { min-height: 100vh; border-radius: 0; padding: 10px; }
+    .scene.expanded .back-card {
+      min-height: 100vh;
+      border-radius: 0;
+      padding: 10px;
+    }
     .back-inner {
       background: linear-gradient(160deg, #ffffff 0%, #f4f4f5 100%);
-      border-radius: 16px; overflow: hidden;
-      display: flex; flex-direction: column;
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
-    .scene.expanded .back-inner { min-height: calc(100vh - 20px); }
+    .scene.expanded .back-inner {
+      min-height: calc(100vh - 20px);
+    }
 
     .back-header {
       padding: 18px 18px 14px;
-      border-bottom: 1px solid rgba(0,0,0,0.07);
-      background: white; text-align: center;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+      background: white;
+      text-align: center;
     }
     .back-name {
       font-family: 'MuseoModerno', serif;
-      font-size: clamp(26px, 7vw, 32px); font-weight: 600;
-      color: #27272a; line-height: 1.1;
+      font-size: clamp(26px, 7vw, 32px);
+      font-weight: 600;
+      color: #27272a;
+      line-height: 1.1;
     }
-    .back-name em { color: #771be0; font-style: italic; }
+    .back-name em {
+      color: #771be0;
+      font-style: italic;
+    }
     .back-role-row {
-      display: flex; align-items: center;
-      justify-content: center; gap: 8px; margin-top: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 4px;
     }
-    .back-role { font-size: 11px; color: #a1a1aa; font-family: 'Montserrat', sans-serif; }
+    .back-role {
+      font-size: 11px;
+      color: #a1a1aa;
+      font-family: 'Montserrat', sans-serif;
+    }
     .crp-badge {
-      border: 1px solid #e4e4e7; border-radius: 20px;
-      padding: 2px 8px; font-size: 9px; color: #71717a; font-family: 'Montserrat', sans-serif;
+      border: 1px solid #e4e4e7;
+      border-radius: 20px;
+      padding: 2px 8px;
+      font-size: 9px;
+      color: #71717a;
+      font-family: 'Montserrat', sans-serif;
     }
 
-    .links-section { padding: 10px 12px 6px; }
-    .links-card {
-      background: white; border-radius: 14px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.06); padding: 10px 12px;
+    .links-section {
+      padding: 10px 12px 6px;
     }
-    .links-row { display: flex; align-items: center; gap: 8px; }
+    .links-card {
+      background: white;
+      border-radius: 14px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+      padding: 10px 12px;
+    }
+    .links-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
     .link-btn {
-      flex: 1; display: flex; flex-direction: column;
-      align-items: center; gap: 4px;
-      text-decoration: none; cursor: pointer;
-      position: relative; z-index: 10;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      text-decoration: none;
+      cursor: pointer;
+      position: relative;
+      z-index: 10;
     }
     .link-icon {
-      width: 44px; height: 44px; border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      transition: opacity 0.15s, transform 0.15s;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition:
+        opacity 0.15s,
+        transform 0.15s;
     }
-    .link-btn:active .link-icon { opacity: 0.75; transform: scale(0.93); }
-    .link-label { font-size: 9px; font-weight: 500; color: #71717a; letter-spacing: 0.02em; font-family: 'MuseoModerno', sans-serif; }
-    .link-wpp { background: #25d366; }
-    .link-ig  { background: linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045); }
-    .link-web { background: #7c3aed; }
-    .link-map { background: #6d28d9; }
-
-    .section { padding: 10px 12px 0; }
-    .section-title { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
-    .section-title span {
-      font-size: 11px; font-weight: 600; color: #10b981;
-      letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap;
+    .link-btn:active .link-icon {
+      opacity: 0.75;
+      transform: scale(0.93);
+    }
+    .link-label {
+      font-size: 9px;
+      font-weight: 500;
+      color: #71717a;
+      letter-spacing: 0.02em;
       font-family: 'MuseoModerno', sans-serif;
     }
-    .section-title hr { flex: 1; border: none; border-top: 1px solid rgba(16,185,129,0.25); }
+    .link-wpp {
+      background: #25d366;
+    }
+    .link-ig {
+      background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+    }
+    .link-tktk {
+      background: #000000;
+    }
+    .link-web {
+      background: #771be0;
+    }
+    .link-youtube {
+      background: #ff0033;
+    }
+    .link-linkedin {
+      background: #0077b5;
+    }
 
-    .spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .section {
+      padding: 10px 12px 0;
+    }
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .section-title span {
+      font-size: 11px;
+      font-weight: 600;
+      color: #833ab4;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      font-family: 'MuseoModerno', sans-serif;
+    }
+    .section-title hr {
+      flex: 1;
+      border: none;
+      border-top: 1px solid #833ab4;
+    }
+
+    .spec-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
     .spec-card {
-      background: white; border-radius: 12px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-      padding: 10px; display: flex; align-items: flex-start; gap: 8px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+      padding: 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
     }
     .spec-icon {
-      width: 30px; height: 30px; min-width: 30px;
-      background: #ecfdf5; border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      color: #10b981;
+      width: 30px;
+      height: 30px;
+      min-width: 30px;
+      background: #833ab4;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #f4e93e;
     }
-    .spec-title { font-size: 11px; font-weight: 600; color: #3f3f46; line-height: 1.3; font-family: 'MuseoModerno', sans-serif; }
-    .spec-sub   { font-size: 9px; color: #a1a1aa; line-height: 1.5; margin-top: 1px; font-family: 'MuseoModerno', sans-serif; }
+    .spec-title {
+      font-size: 11px;
+      font-weight: 600;
+      color: #3f3f46;
+      line-height: 1.3;
+      font-family: 'MuseoModerno', sans-serif;
+    }
+    .spec-sub {
+      font-size: 9px;
+      color: #a1a1aa;
+      line-height: 1.5;
+      margin-top: 1px;
+      font-family: 'MuseoModerno', sans-serif;
+    }
 
     .about-card {
-      background: white; border-radius: 14px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.06); padding: 12px 14px;
+      background: white;
+      border-radius: 14px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+      padding: 12px 14px;
     }
     .about-quote {
       font-family: 'MuseoModerno', serif;
-      font-size: 36px; line-height: 0.6;
-      color: rgba(16,185,129,0.25); margin-bottom: 4px;
+      font-size: 36px;
+      line-height: 0.6;
+      color: #ffd102;
+      margin-bottom: 4px;
     }
-    .about-text   { font-size: 11px; color: #52525b; line-height: 1.7; font-family: 'MuseoModerno', sans-serif; }
-    .about-text-2 { font-size: 11px; color: #a1a1aa; line-height: 1.7; margin-top: 8px; font-family: 'MuseoModerno', sans-serif; }
-    .about-footer {
-      display: flex; justify-content: space-between; align-items: center;
-      border-top: 1px solid #f4f4f5; margin-top: 10px; padding-top: 8px;
-    }
-    .about-footer span { font-size: 9px; font-family: 'MuseoModerno', sans-serif; }
-
-    .form-card {
-      background: white; border-radius: 14px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-      padding: 12px 14px; display: flex; flex-direction: column; gap: 10px;
-    }
-    .form-item { display: flex; align-items: flex-start; gap: 10px; }
-    .form-icon {
-      width: 30px; height: 30px; min-width: 30px;
-      background: #ecfdf5; border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      color: #10b981; margin-top: 1px;
-    }
-    .form-title { font-size: 11px; font-weight: 600; color: #3f3f46; line-height: 1.4; font-family: 'MuseoModerno', sans-serif; }
-    .form-sub   { font-size: 10px; color: #a1a1aa; margin-top: 1px; font-family: 'MuseoModerno', sans-serif; }
-    .form-divider { height: 1px; background: #f4f4f5; }
-
-    .back-btn-wrap { padding: 10px 12px 14px; }
-    .back-btn {
-      width: 100%; padding: 13px; border-radius: 14px;
-      background: #10b981; color: white; border: none; cursor: pointer;
-      font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
-      display: flex; align-items: center; justify-content: center; gap: 6px;
-      transition: background 0.15s, transform 0.1s;
+    .about-text {
+      font-size: 11px;
+      color: #52525b;
+      line-height: 1.7;
       font-family: 'MuseoModerno', sans-serif;
     }
-    .back-btn:active { background: #059669; transform: scale(0.98); }
+    .about-text-2 {
+      font-size: 11px;
+      color: #a1a1aa;
+      line-height: 1.7;
+      margin-top: 8px;
+      font-family: 'MuseoModerno', sans-serif;
+    }
+    .about-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #f4f4f5;
+      margin-top: 10px;
+      padding-top: 8px;
+    }
+    .about-footer span {
+      font-size: 9px;
+      font-family: 'MuseoModerno', sans-serif;
+    }
+
+    .form-card {
+      background: white;
+      border-radius: 14px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .form-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .form-icon {
+      width: 30px;
+      height: 30px;
+      min-width: 30px;
+      background: #833ab4;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #F4E93E;
+      margin-top: 1px;
+    }
+    .form-title {
+      font-size: 11px;
+      font-weight: 600;
+      color: #3f3f46;
+      line-height: 1.4;
+      font-family: 'MuseoModerno', sans-serif;
+    }
+    .form-sub {
+      font-size: 10px;
+      color: #a1a1aa;
+      margin-top: 1px;
+      font-family: 'MuseoModerno', sans-serif;
+    }
+    .form-divider {
+      height: 1px;
+      background: #f4f4f5;
+    }
+
+    .back-btn-wrap {
+      padding: 10px 12px 14px;
+    }
+    .back-btn {
+      width: 100%;
+      padding: 13px;
+      border-radius: 14px;
+      background: #833ab4;
+      color: #F4E93E;
+      border: none;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition:
+        background 0.15s,
+        transform 0.1s;
+      font-family: 'MuseoModerno', sans-serif;
+    }
+    .back-btn:active {
+      background: #059669;
+      transform: scale(0.98);
+    }
   </style>
 
   <!-- SCENE -->
   <div class="scene" [class.expanded]="isBack">
     <div class="flipper" [class.flipped]="isBack">
-
       <!-- FRONT -->
       <div class="face-front">
         <div class="front-card" (click)="flipCard()">
-
-
           <div>
-            <img src="assets/logotipo.png" alt="Logo" style="width: 100%">
+            <img src="assets/logotipo.png" alt="Logo" style="width: 100%" />
           </div>
 
-          <div style="flex:1;display:flex;flex-direction:column;justify-content:center;padding:20px 0 8px;position:relative;z-index:2">
-
-            <div style="margin-top:20px">
-              <div class="front-name">Fernando<br>H. B. Rossini</div>
+          <div
+            style="
+              flex: 1;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              padding: 20px 0 8px;
+              position: relative;
+              z-index: 2;
+            "
+          >
+            <div style="margin-top: 20px">
+              <div class="front-name">Fernando<br />H. B. Rossini</div>
               <div class="front-role">Marketing e Comunicação</div>
             </div>
           </div>
 
-          <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px;position:relative;z-index:2">
+          <div
+            style="
+              display: flex;
+              align-items: flex-end;
+              justify-content: space-between;
+              gap: 12px;
+              position: relative;
+              z-index: 2;
+            "
+          >
             <div>
-              <div class="front-clinic">
-                Sócio Diretor
-              </div>
+              <div class="front-clinic">Sócio Diretor</div>
               <div class="front-hint">Toque para ver mais</div>
             </div>
-            <div style="display:flex;align-items:center;gap:8px">
-
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3e1b83" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 8.32a7.43 7.43 0 0 1 0 7.36"/>
-                <path d="M9.46 6.21a11.76 11.76 0 0 1 0 11.58"/>
-                <path d="M12.91 4.1a15.91 15.91 0 0 1 .01 15.8"/>
-                <path d="M16.37 2a20.16 20.16 0 0 1 0 20"/>
+            <div style="display: flex; align-items: center; gap: 8px">
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#3e1b83"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M6 8.32a7.43 7.43 0 0 1 0 7.36" />
+                <path d="M9.46 6.21a11.76 11.76 0 0 1 0 11.58" />
+                <path d="M12.91 4.1a15.91 15.91 0 0 1 .01 15.8" />
+                <path d="M16.37 2a20.16 20.16 0 0 1 0 20" />
               </svg>
             </div>
           </div>
@@ -307,20 +542,29 @@
       </div>
 
       <!-- Verso visual apenas para efeito 3D -->
-      <div style="position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;transform:rotateY(180deg);border-radius:24px;background:linear-gradient(135deg,#7c3aed,#6d28d9);pointer-events:none;"></div>
-
-    </div><!-- /flipper -->
+      <div
+        style="
+          position: absolute;
+          inset: 0;
+          backface-visibility: hidden;
+          -webkit-backface-visibility: hidden;
+          transform: rotateY(180deg);
+          border-radius: 24px;
+          background: linear-gradient(135deg, #7c3aed, #6d28d9);
+          pointer-events: none;
+        "
+      ></div>
+    </div>
+    <!-- /flipper -->
 
     <!-- BACK REAL: fora do flipper -->
     <div class="face-back" [class.visible]="isBack" (click)="$event.stopPropagation()">
       <div class="back-card">
         <div class="back-inner">
-
           <div class="back-header">
             <div class="back-name">Fernando H. B.<em> Rossini</em></div>
             <div class="back-role-row">
-              <span class="back-role">Psicóloga e Neuropsicóloga</span>
-              <span class="crp-badge">CRP 06/61283</span>
+              <span class="back-role">Marketing e Comunicação</span>
             </div>
           </div>
 
@@ -328,29 +572,125 @@
           <div class="links-section">
             <div class="links-card">
               <div class="links-row">
-                <a class="link-btn" href="https://wa.me/5511982829179" target="_blank" (click)="$event.stopPropagation()">
+                <a
+                  class="link-btn"
+                  href="https://wa.me/5511999001795"
+                  target="_blank"
+                  (click)="$event.stopPropagation()"
+                >
                   <div class="link-icon link-wpp">
-                    <svg width="20" height="20" fill="white" viewBox="0 0 16 16"><path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/></svg>
+                    <svg width="20" height="20" fill="white" viewBox="0 0 16 16">
+                      <path
+                        d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"
+                      />
+                    </svg>
                   </div>
                   <span class="link-label">WhatsApp</span>
                 </a>
-                <a class="link-btn" href="https://www.instagram.com/claramente_itaqua/" target="_blank" (click)="$event.stopPropagation()">
+                <a
+                  class="link-btn"
+                  href="https://www.instagram.com/ferossini/"
+                  target="_blank"
+                  (click)="$event.stopPropagation()"
+                >
                   <div class="link-icon link-ig">
-                    <svg width="20" height="20" fill="white" viewBox="0 0 16 16"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/></svg>
+                    <svg width="20" height="20" fill="white" viewBox="0 0 16 16">
+                      <path
+                        d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"
+                      />
+                    </svg>
                   </div>
                   <span class="link-label">Instagram</span>
                 </a>
-                <a class="link-btn" href="https://claramente.psc.br" target="_blank" (click)="$event.stopPropagation()">
+                <a
+                  class="link-btn"
+                  href="https://www.tiktok.com/@ferossini85"
+                  target="_blank"
+                  (click)="$event.stopPropagation()"
+                >
+                  <div class="link-icon link-tktk">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      fill="white"
+                      class="bi bi-tiktok"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"
+                      />
+                    </svg>
+                  </div>
+                  <span class="link-label">TikTok</span>
+                </a>
+                <a
+                  class="link-btn"
+                  href="https://www.youtube.com/@canalferossini"
+                  target="_blank"
+                  (click)="$event.stopPropagation()"
+                >
+                  <div class="link-icon link-youtube">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      fill="white"
+                      class="bi bi-youtube"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"
+                      />
+                    </svg>
+                  </div>
+                  <span class="link-label">Youtube</span>
+                </a>
+
+                <a
+                  class="link-btn"
+                  href="https://www.linkedin.com/in/fernandobrasilrossini/"
+                  target="_blank"
+                  (click)="$event.stopPropagation()"
+                >
+                  <div class="link-icon link-linkedin">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      fill="white"
+                      class="bi bi-linkedin"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"
+                      />
+                    </svg>
+                  </div>
+                  <span class="link-label">LinkedIn</span>
+                </a>
+
+                <a
+                  class="link-btn"
+                  href="https://www.universoconsultoria.com.br"
+                  target="_blank"
+                  (click)="$event.stopPropagation()"
+                >
                   <div class="link-icon link-web">
-                    <svg width="20" height="20" fill="white" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m7.5-6.923c-.67.204-1.335.82-1.887 1.855A8 8 0 0 0 5.145 4H7.5zM4.09 4a9.3 9.3 0 0 1 .64-1.539 7 7 0 0 1 .597-.933A7.03 7.03 0 0 0 2.255 4zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a7 7 0 0 0-.656 2.5zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5zM8.5 5v2.5h2.99a12.5 12.5 0 0 0-.337-2.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5zM5.145 12q.208.58.468 1.068c.552 1.035 1.218 1.65 1.887 1.855V12zm.182 2.472a7 7 0 0 1-.597-.933A9.3 9.3 0 0 1 4.09 12H2.255a7 7 0 0 0 3.072 2.472M3.82 11a13.7 13.7 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5zm6.853 3.472A7 7 0 0 0 13.745 12H11.91a9.3 9.3 0 0 1-.64 1.539 7 7 0 0 1-.597.933M8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855q.26-.487.468-1.068zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.7 13.7 0 0 1-.312 2.5m2.802-3.5a7 7 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7 7 0 0 0-3.072-2.472c.218.284.418.598.597.933M10.855 4a8 8 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4z"/></svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      fill="white"
+                      class="bi bi-globe2"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m7.5-6.923c-.67.204-1.335.82-1.887 1.855q-.215.403-.395.872c.705.157 1.472.257 2.282.287zM4.249 3.539q.214-.577.481-1.078a7 7 0 0 1 .597-.933A7 7 0 0 0 3.051 3.05q.544.277 1.198.49zM3.509 7.5c.036-1.07.188-2.087.436-3.008a9 9 0 0 1-1.565-.667A6.96 6.96 0 0 0 1.018 7.5zm1.4-2.741a12.3 12.3 0 0 0-.4 2.741H7.5V5.091c-.91-.03-1.783-.145-2.591-.332M8.5 5.09V7.5h2.99a12.3 12.3 0 0 0-.399-2.741c-.808.187-1.681.301-2.591.332zM4.51 8.5c.035.987.176 1.914.399 2.741A13.6 13.6 0 0 1 7.5 10.91V8.5zm3.99 0v2.409c.91.03 1.783.145 2.591.332.223-.827.364-1.754.4-2.741zm-3.282 3.696q.18.469.395.872c.552 1.035 1.218 1.65 1.887 1.855V11.91c-.81.03-1.577.13-2.282.287zm.11 2.276a7 7 0 0 1-.598-.933 9 9 0 0 1-.481-1.079 8.4 8.4 0 0 0-1.198.49 7 7 0 0 0 2.276 1.522zm-1.383-2.964A13.4 13.4 0 0 1 3.508 8.5h-2.49a6.96 6.96 0 0 0 1.362 3.675c.47-.258.995-.482 1.565-.667m6.728 2.964a7 7 0 0 0 2.275-1.521 8.4 8.4 0 0 0-1.197-.49 9 9 0 0 1-.481 1.078 7 7 0 0 1-.597.933M8.5 11.909v3.014c.67-.204 1.335-.82 1.887-1.855q.216-.403.395-.872A12.6 12.6 0 0 0 8.5 11.91zm3.555-.401c.57.185 1.095.409 1.565.667A6.96 6.96 0 0 0 14.982 8.5h-2.49a13.4 13.4 0 0 1-.437 3.008M14.982 7.5a6.96 6.96 0 0 0-1.362-3.675c-.47.258-.995.482-1.565.667.248.92.4 1.938.437 3.008zM11.27 2.461q.266.502.482 1.078a8.4 8.4 0 0 0 1.196-.49 7 7 0 0 0-2.275-1.52c.218.283.418.597.597.932m-.488 1.343a8 8 0 0 0-.395-.872C9.835 1.897 9.17 1.282 8.5 1.077V4.09c.81-.03 1.577-.13 2.282-.287z"
+                      />
+                    </svg>
                   </div>
                   <span class="link-label">Site</span>
-                </a>
-                <a class="link-btn" href="https://google.com/maps?daddr=Av.+Pres.+Tancredo+Neves,+363+-+Itaquaquecetuba+-+SP" target="_blank" (click)="$event.stopPropagation()">
-                  <div class="link-icon link-map">
-                    <svg width="20" height="20" fill="white" viewBox="0 0 16 16"><path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/><path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/></svg>
-                  </div>
-                  <span class="link-label">Como chegar</span>
                 </a>
               </div>
             </div>
@@ -358,58 +698,217 @@
 
           <!-- ESPECIALIDADES -->
           <div class="section">
-            <div class="section-title"><span>Especialidades</span><hr/></div>
+            <div class="section-title">
+              <span>Especialidades</span>
+              <hr />
+            </div>
             <div class="spec-grid">
               <div class="spec-card">
-                <div class="spec-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.46 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.46 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3Z"/></svg></div>
-                <div><div class="spec-title">Psicoterapia</div><div class="spec-sub">Adultos · Adolescentes · Casal</div></div>
+                <div class="spec-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-bullseye"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                    <path d="M8 13A5 5 0 1 1 8 3a5 5 0 0 1 0 10m0 1A6 6 0 1 0 8 2a6 6 0 0 0 0 12" />
+                    <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8" />
+                    <path d="M9.5 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="spec-title">Branding</div>
+                  <div class="spec-sub">Construção de marcas</div>
+                </div>
               </div>
               <div class="spec-card">
-                <div class="spec-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.657 4.03 3 9 3s9-1.343 9-3V5"/><path d="M3 12c0 1.657 4.03 3 9 3s9-1.343 9-3"/></svg></div>
-                <div><div class="spec-title">Neuropsicologia</div><div class="spec-sub">Avaliação · Cognição · Memória</div></div>
+                <div class="spec-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-kanban"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M13.5 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zm-11-1a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"
+                    />
+                    <path
+                      d="M6.5 3a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1zm-4 0a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1zm8 0a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <div class="spec-title">Gerenciamento de equipes</div>
+                  <div class="spec-sub">liderança corporativa</div>
+                </div>
               </div>
               <div class="spec-card">
-                <div class="spec-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-                <div><div class="spec-title">Avaliação</div><div class="spec-sub">Diagnóstico · Laudos · Perícias</div></div>
+                <div class="spec-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-backpack"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M4.04 7.43a4 4 0 0 1 7.92 0 .5.5 0 1 1-.99.14 3 3 0 0 0-5.94 0 .5.5 0 1 1-.99-.14M4 9.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5zm1 .5v3h6v-3h-1v.5a.5.5 0 0 1-1 0V10z"
+                    />
+                    <path
+                      d="M6 2.341V2a2 2 0 1 1 4 0v.341c2.33.824 4 3.047 4 5.659v5.5a2.5 2.5 0 0 1-2.5 2.5h-7A2.5 2.5 0 0 1 2 13.5V8a6 6 0 0 1 4-5.659M7 2v.083a6 6 0 0 1 2 0V2a1 1 0 0 0-2 0m1 1a5 5 0 0 0-5 5v5.5A1.5 1.5 0 0 0 4.5 15h7a1.5 1.5 0 0 0 1.5-1.5V8a5 5 0 0 0-5-5"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <div class="spec-title">Ensino</div>
+                  <div class="spec-sub">Graduação, Pós-Graduação e mentoria individual</div>
+                </div>
               </div>
               <div class="spec-card">
-                <div class="spec-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-                <div><div class="spec-title">Orient. Parental</div><div class="spec-sub">Família · Vínculos · Desenvolvimento</div></div>
+                <div class="spec-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-trophy"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5q0 .807-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33 33 0 0 1 2.5.5m.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935m10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935M3.504 1q.01.775.056 1.469c.13 2.028.457 3.546.87 4.667C5.294 9.48 6.484 10 7 10a.5.5 0 0 1 .5.5v2.61a1 1 0 0 1-.757.97l-1.426.356a.5.5 0 0 0-.179.085L4.5 15h7l-.638-.479a.5.5 0 0 0-.18-.085l-1.425-.356a1 1 0 0 1-.757-.97V10.5A.5.5 0 0 1 9 10c.516 0 1.706-.52 2.57-2.864.413-1.12.74-2.64.87-4.667q.045-.694.056-1.469z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <div class="spec-title">Marketing esportivo</div>
+                  <div class="spec-sub">Gestão e análise esportiva</div>
+                </div>
               </div>
             </div>
           </div>
 
           <!-- SOBRE -->
-          <div class="section" style="padding-top:10px">
-            <div class="section-title"><span>Sobre mim</span><hr/></div>
+          <div class="section" style="padding-top: 10px">
+            <div class="section-title">
+              <span>Sobre mim</span>
+              <hr />
+            </div>
             <div class="about-card">
               <div class="about-quote">"</div>
-              <p class="about-text">Psicóloga e neuropsicóloga com mais de 20 anos de experiência, ofereço um cuidado humano e especializado para adultos, adolescentes e famílias — unindo ciência e afeto na promoção da saúde mental.</p>
-              <p class="about-text-2">Cada pessoa carrega uma história única. É nesse espaço de escuta e acolhimento que a transformação acontece.</p>
-              <div class="about-footer">
-                <span style="color:#a1a1aa">CRP 06/61283</span>
-                <span style="color:#10b981;font-weight:600">Desde 2000</span>
-              </div>
+              <p class="about-text">
+                41 anos, publicitário com MBA em Marketing e Mestre em Administração. Sócio
+                proprietário da Universo Comunicação e Marketing, gerente de marketing da TMKT e
+                professor da FIA Business School e da UFMS.
+              </p>
+              <!-- <p class="about-text-2">
+
+              </p> -->
+              <!-- <div class="about-footer">
+                <span style="color: #a1a1aa">CRP 06/61283</span>
+                <span style="color: #833ab4; font-weight: 600">Desde 2000</span>
+              </div> -->
             </div>
           </div>
 
           <!-- FORMAÇÕES -->
-          <div class="section" style="padding-top:10px">
-            <div class="section-title"><span>Formações</span><hr/></div>
+          <div class="section" style="padding-top: 10px">
+            <div class="section-title">
+              <span>Formações</span>
+              <hr />
+            </div>
             <div class="form-card">
               <div class="form-item">
-                <div class="form-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
-                <div><div class="form-title">Psicologia</div><div class="form-sub">Cruzeiro do Sul · 2000</div></div>
+                <div class="form-icon">
+                  <svg
+                    width="15"
+                    height="15"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                    <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="form-title">Publicidade e Propaganda</div>
+                  <div class="form-sub"> Universidade Metodista de São Paulo</div>
+                </div>
               </div>
               <div class="form-divider"></div>
               <div class="form-item">
-                <div class="form-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
-                <div><div class="form-title">Psicologia Hospitalar — Cardiologia</div><div class="form-sub">HC FMUSP · 2008</div></div>
+                <div class="form-icon">
+                  <svg
+                    width="15"
+                    height="15"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                    <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="form-title">MBA de Marketing</div>
+                  <div class="form-sub">Universidade Nove de Julho</div>
+                </div>
               </div>
               <div class="form-divider"></div>
               <div class="form-item">
-                <div class="form-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
-                <div><div class="form-title">Neuropsicologia</div><div class="form-sub">Santa Casa de São Paulo · 2013</div></div>
+                <div class="form-icon">
+                  <svg
+                    width="15"
+                    height="15"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                    <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="form-title">Mestrado em Administração (marketing esportivo)</div>
+                  <div class="form-sub">Universidade de São Paulo (USP)</div>
+                </div>
+              </div>
+              <div class="form-divider"></div>
+              <div class="form-item">
+                <div class="form-icon">
+                  <svg
+                    width="15"
+                    height="15"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                    <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="form-title">Fall School Residential Seminar</div>
+                  <div class="form-sub">Université Grenoble Alpes (França)</div>
+                </div>
               </div>
             </div>
           </div>
@@ -417,16 +916,25 @@
           <!-- BOTÃO VOLTAR -->
           <div class="back-btn-wrap">
             <button class="back-btn" (click)="flipCard()">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
               Voltar ao cartão
             </button>
           </div>
-
         </div>
       </div>
-    </div><!-- /face-back -->
-
-  </div><!-- /scene -->
-
+    </div>
+    <!-- /face-back -->
+  </div>
+  <!-- /scene -->
 </div>
-
